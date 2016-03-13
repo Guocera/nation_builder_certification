@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   def index
     require 'oauth2'
     site_path = 'https://branchoutdev.nationbuilder.com'
-    redirect_uri = 'http://localhost:3000/oauth_callback'
+    redirect_uri = 'http://localhost:3000/callback'
     client_id = OAUTH_CONFIG['client_id']
     client_secret = OAUTH_CONFIG['client_secret']
     client = OAuth2::Client.new(
