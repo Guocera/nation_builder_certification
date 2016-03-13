@@ -11,6 +11,7 @@ class WelcomeController < ApplicationController
       site: site_path
     )
 
+    @code = session[:code]
     @client_id = client_id
     @oauth_authorize = client.auth_code.authorize_url(redirect_uri: redirect_uri)
   end
