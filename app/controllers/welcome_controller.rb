@@ -13,9 +13,9 @@ class WelcomeController < ApplicationController
       site: site_path
     )
 
-    code = session[:code]
-    if code
-      token = get_access_token(code)
+    @code = session[:code]
+    if @code
+      token = get_access_token(@code)
       response = token.get('/api/v1/people', headers: { "Accept": "application/json" }, params: { page: 1 } )      
       @people = JSON.parse(response.body)
     end
