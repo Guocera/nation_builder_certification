@@ -10,7 +10,7 @@ class OauthsController < ApplicationController
       client_secret,
       site: site_path
     )
-    token = client.auth_code.get_token(code, redirect_uri: redirect_uri)
+    token = client.auth_code.get_token(code, redirect_uri: redirect_uri).to_hash
     session[:token] = token
 
     redirect_to people_path
