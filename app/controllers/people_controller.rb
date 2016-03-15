@@ -5,14 +5,7 @@ class PeopleController < ApplicationController
     # @people = JSON.parse(response.body)
 
  
-    site_path = 'https://branchoutdev.nationbuilder.com'
-    client_id = OAUTH_CONFIG['client_id']
-    client_secret = OAUTH_CONFIG['client_secret']
-    client = OAuth2::Client.new(
-      client_id, 
-      client_secret,
-      site: site_path
-    )
+    client = get_client
 
     @token = OAuth2::AccessToken.from_hash(client, session[:token]).inspect
     @client = client.inspect
