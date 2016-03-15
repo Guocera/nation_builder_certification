@@ -1,15 +1,8 @@
 class OauthsController < ApplicationController
   def new    
     code = params[:code]
-    site_path = 'https://branchoutdev.nationbuilder.com'
+    client = get_client
     redirect_uri = 'http://localhost:3000/oauth/new'
-    client_id = OAUTH_CONFIG['client_id']
-    client_secret = OAUTH_CONFIG['client_secret']
-    client = OAuth2::Client.new(
-      client_id, 
-      client_secret,
-      site: site_path
-    )
     token = client.auth_code.get_token(code, redirect_uri: redirect_uri).to_hash
     session[:token] = token
 
