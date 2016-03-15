@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :people
   root 'welcome#index'
 
   resource :oauth, only: [:new, :destroy]
