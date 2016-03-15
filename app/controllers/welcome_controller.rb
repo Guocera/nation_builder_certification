@@ -2,7 +2,8 @@ class WelcomeController < ApplicationController
   def index
     require 'oauth2'
     require 'json'
-  
+    reset_session
+
     site_path = 'https://branchoutdev.nationbuilder.com'
     redirect_uri = 'http://localhost:3000/oauth/new'
     client_id = OAUTH_CONFIG['client_id']
@@ -14,7 +15,5 @@ class WelcomeController < ApplicationController
     )
 
     @oauth_authorize = client.auth_code.authorize_url(redirect_uri: redirect_uri)
-
-    @code = session[:code]
   end
 end

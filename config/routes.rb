@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :people
+
   root 'welcome#index'
 
   resource :oauth, only: [:new, :destroy]
+  resources :people, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
