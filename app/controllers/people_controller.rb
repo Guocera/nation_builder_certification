@@ -13,7 +13,7 @@ class PeopleController < ApplicationController
   end
 
   def new
-    
+    @person = Person.new
   end
 
   def edit
