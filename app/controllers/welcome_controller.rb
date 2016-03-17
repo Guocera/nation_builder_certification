@@ -2,7 +2,6 @@ class WelcomeController < ApplicationController
   def index
     require 'oauth2'
     require 'json'
-    reset_session
 
     site_path = 'https://branchoutdev.nationbuilder.com'
     redirect_uri = 'http://localhost:3000/oauth/new'

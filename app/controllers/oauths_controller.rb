@@ -6,7 +6,7 @@ class OauthsController < ApplicationController
     token = client.auth_code.get_token(code, redirect_uri: redirect_uri).to_hash
     session[:token] = token
 
-    redirect_to people_path
+    redirect_to root_path
   end
 
   def destroy
