@@ -1,7 +1,7 @@
 class OauthsController < ApplicationController
   def new    
     code = params[:code]
-    client = get_client
+    client = get_access_token
     redirect_uri = 'http://localhost:3000/oauth/new'
     token = client.auth_code.get_token(code, redirect_uri: redirect_uri).to_hash
     session[:token] = token

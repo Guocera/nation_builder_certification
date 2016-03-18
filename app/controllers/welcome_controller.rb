@@ -3,16 +3,9 @@ class WelcomeController < ApplicationController
     require 'oauth2'
     require 'json'
 
-    site_path = 'https://branchoutdev.nationbuilder.com'
-    redirect_uri = 'http://localhost:3000/oauth/new'
-    client_id = OAUTH_CONFIG['client_id']
-    client_secret = OAUTH_CONFIG['client_secret']
-    client = OAuth2::Client.new(
-      client_id, 
-      client_secret,
-      site: site_path
-    )
+    redirect_url = 'http://localhost:3000/oauth/new'
+    @oauth_authorize = get_request_token(redirect_url)
 
-    @oauth_authorize = client.auth_code.authorize_url(redirect_uri: redirect_uri)
+
   end
 end
