@@ -3,9 +3,8 @@ class WelcomeController < ApplicationController
     require 'oauth2'
     require 'json'
 
-    redirect_url = 'http://localhost:3000/oauth/new'
-    @oauth_authorize = get_request_token(redirect_url)
-
+    @oauth_authorize = get_request_token
+    session[:authenticate] = @oauth_authorize
 
   end
 end
