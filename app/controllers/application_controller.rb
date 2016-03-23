@@ -7,7 +7,12 @@ class ApplicationController < ActionController::Base
   private
 
   def token
-    OAuth2::AccessToken.new(client, token)
+    @token ||= get_access_token
+  end
+
+  def get_access_token
+    client = get_client
+    OAuth2::AccessToken.new(client, session[:token])
   end
 
   def get_client
