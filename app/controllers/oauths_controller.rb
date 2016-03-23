@@ -4,7 +4,8 @@ class OauthsController < ApplicationController
     client = get_client
 
     code = params[:code]
-    token = client.auth_code.get_token(code, redirect_uri: redirect_uri).to_hash
+    token = client.auth_code.get_token(code, redirect_uri: redirect_uri)
+    session[:token] = token.token
 
     redirect_to root_path
   end
