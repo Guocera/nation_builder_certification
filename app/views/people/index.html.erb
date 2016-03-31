@@ -47,10 +47,11 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+            <h4 class="modal-title custom_align">Edit Person</h4>
           </div>
           
           <div class="modal-body">
+            <% @person.first_name = person['first_name'] %>
             <%= render 'form', is_new: false %>
           </div>
 
@@ -63,7 +64,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-            <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
+            <h4 class="modal-title custom_align">Delete Person</h4>
           </div>
       
           <div class="modal-body">   
