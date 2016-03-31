@@ -51,17 +51,7 @@
           </div>
           
           <div class="modal-body">
-            <div class="form-group">
-              <input class="form-control " type="text" value=<%= person['first_name'] %>>
-            </div>
-
-            <div class="form-group">
-              <input class="form-control " type="text" placeholder="Irshad">
-            </div>
-
-            <div class="form-group">
-              <textarea rows="2" class="form-control" placeholder="CB 106/107 Street # 11 Wah Cantt Islamabad Pakistan"></textarea>
-            </div>
+            <%= render 'form', has_submit?: false %>
           </div>
 
           <div class="modal-footer ">
