@@ -51,7 +51,7 @@
           </div>
           
           <div class="modal-body">
-            <%= render 'form', has_submit?: false %>
+            <%= render 'form', locals: {is_new?: true} %>
           </div>
 
           <div class="modal-footer ">
