@@ -1,4 +1,11 @@
-<%= form_for(@person, html: {class: "form-horizontal", role: "form"}) do |f| %>
+<% if is_new %>
+  <% action = "create" %>
+<% else %>
+  <% action = "update" %>  
+<% end %>
+
+<%= form_for(@person, html: {class: "form-horizontal", role: "form", url: { action: action } }) do |f| %>
+  <%= f.hidden_field :id, value: @person.id %>
   <% if @person.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
@@ -12,7 +19,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.hidden_field :id, value: @person.id %>
     <%= f.label :first_name, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
       <%= f.text_field :first_name, required: true, value: @person.first_name, placeholder: "First name", class: "form-control" %>  
@@ -47,9 +53,8 @@
   <% else %>
     </div>
     <div class="modal-footer ">
-      <%= link_to edit_person_path(@person.id), class: "btn btn-warning btn-lg", style: "width: 100%;" do %>
-        <span class="glyphicon glyphicon-ok-sign"></span> Update
-      <% end -%>
-    </div>
+      <%= button_tag(type: 'submit', method: :put, class: "btn btn-warning btn-lg", style: "width: 100%;") do %>
+        <span class='glyphicon glyphicon-ok-sign'></span> Update
+      <% end %>
   <% end %>
 <% end %>
