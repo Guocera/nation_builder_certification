@@ -14,6 +14,10 @@ class PeopleController < ApplicationController
     @person = Person.new
   end
 
+  def create
+    
+  end
+
   def edit
     
   end

@@ -32,3 +32,19 @@ Leaderboard User Stories
 * As a Branchy, I want to edit my profile (Bio, Fun Fact, & Campaign Goals) so that it represents me and my fundraising goals.
 
 * As a Branchy or the public, I want to be able to donate to a fundraiser when I am visiting their profile so that I can contribute to their campaign.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's total engagement that includes # of employees engaged.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's total engagement that includes # of new FB likes.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's total engagement that includes # of new event participation.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's total engagement that includes # of new survey answers.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's monthly engagement that includes # of employees engaged.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's monthly engagement that includes # of new FB likes.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's monthly engagement that includes # of new event participation.
+
+* As a Branch Out Admin, I want to produce a report that summarizes a company's monthly engagement that includes # of new survey answers.
