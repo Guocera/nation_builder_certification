@@ -15,7 +15,9 @@ class PeopleController < ApplicationController
   end
 
   def create
-    
+    @person = Person.new(person_params)
+
+    redirect_to people_path
   end
 
   def edit
@@ -24,5 +26,11 @@ class PeopleController < ApplicationController
 
   def destroy
     
+  end
+
+  private
+
+  def person_params
+    params.require(:person).permit(:first_name, :last_name, :email)
   end
 end
