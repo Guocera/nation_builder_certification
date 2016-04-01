@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resource :oauth, only: [:new, :destroy]
-  resources :people, only: [:new, :create, :index, :show, :edit, :destroy]
+  resources :people, only: [:new, :create, :index, :show, :edit, :update, :destroy]
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.

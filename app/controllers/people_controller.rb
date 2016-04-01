@@ -30,6 +30,18 @@ class PeopleController < ApplicationController
     
   end
 
+  def update
+    @person = Person.new(person_params)
+
+    token.put("/api/v1/people/#{@person.id}", body: { "person": {
+      "email": @person.email,
+      "last_name": @person.last_name,
+      "first_name": @person.first_name
+    }}.to_json, headers: { "Accept": "application/json", "Content-Type": "application/json" })
+
+    redirect_to people_path 
+  end
+
   def destroy
     
   end
@@ -37,6 +49,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:first_name, :last_name, :email)
+    params.require(:person).permit(:first_name, :last_name, :email, :id)
   end
 end
