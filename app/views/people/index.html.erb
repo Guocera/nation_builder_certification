@@ -42,6 +42,11 @@
   </div>
 
   <% @people.each_with_index do |person, i| %>
+    <% @person.first_name = person['first_name'] %>
+    <% @person.last_name = person['last_name'] %>
+    <% @person.email = person['email'] %>
+    <% @person.id = person['id'] %>
+
     <div class="modal fade" id=<%= "edit-#{i}" %> tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -50,11 +55,7 @@
             <h4 class="modal-title custom_align">Edit Person</h4>
           </div>
           
-          <div class="modal-body">
-            <% @person.first_name = person['first_name'] %>
-            <% @person.last_name = person['last_name'] %>
-            <% @person.email = person['email'] %>
-            <% @person.id = person['id'] %>                     
+          <div class="modal-body">                 
             <%= render 'form', is_new: false %>
           </div>
 
@@ -75,7 +76,7 @@
           </div>
 
           <div class="modal-footer ">
-            <%= link_to person_path(person["email"]), class: "btn btn-success", method: :delete do %>
+            <%= link_to person_path(@person.id), class: "btn btn-success", method: :delete do %>
               <span class="glyphicon glyphicon-ok-sign"></span> Yes
             <% end -%>
             <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> No</button>
