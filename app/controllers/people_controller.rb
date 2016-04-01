@@ -17,6 +17,12 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
+    token.post('/api/v1/people', body: { "person": {
+      "email": @person.email,
+      "last_name": @person.last_name,
+      "first_name": @person.first_name
+    }}.to_json, headers: { "Accept": "application/json", "Content-Type": "application/json" })
+
     redirect_to people_path
   end
 
