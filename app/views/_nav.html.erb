@@ -16,6 +16,7 @@
       <ul class="nav navbar-nav pull-right">
         <% if session[:token] %>
           <li><%= link_to "People", people_path %></li>
+          <li><%= link_to "Events", events_path %></li>
           <li><%= link_to "Logout", oauth_path, method: :delete %><span class="sr-only">(current)</span></li>  
         <% else %>
           <li><a href="<%= @oauth_authorize %>">Login</a></li>
