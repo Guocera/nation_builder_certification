@@ -30,21 +30,21 @@
   <div class="form-group">
     <%= f.label :status, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.select(:status, options_for_select([["unlisted"], ["published"], ["hidden"]]), {}, {class: "form-control"}) %>
+      <%= f.select(:status, options_for_select([["unlisted"], ["published"], ["hidden"]], @event.status), {}, {class: "form-control"}) %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :start_time, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.date_field(:start_time, required: true, value: @event.start_time, placeholder: "Start time", class: "form-control") %>
+      <%= f.date_field(:start_time, required: true, value: @event.start_time.strftime('%Y-%m-%d'), placeholder: "Start time", class: "form-control") %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :end_time, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.date_field(:end_time, required: true, value: @event.end_time, placeholder: "End time", class: "form-control") %>
+      <%= f.date_field(:end_time, required: true, value: @event.end_time.strftime('%Y-%m-%d'), placeholder: "End time", class: "form-control") %>
     </div>
   </div>
 
