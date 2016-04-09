@@ -2,7 +2,9 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-
+    site_slug = 'branchoutdev'
+    response = token.get("/api/v1/sites/#{site_slug}/pages/events", headers: { "Accept": "application/json" })
+    @events = JSON.parse(response.body)["results"]
   end
 
 #   # GET /events/1
