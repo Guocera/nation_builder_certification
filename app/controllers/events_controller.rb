@@ -12,10 +12,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
     token.post("/api/v1/sites/#{site_slug}/pages/events", body: { "event": {
       "name": @event.name,
       "status": @event.status,
+      "start_time": @event.start_time,
+      "end_time": @event.end_time
     }}.to_json, headers: { "Accept": "application/json", "Content-Type": "application/json" })
 
     redirect_to events_path
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :id, :status)
+    params.require(:event).permit(:name, :id, :status, :start_time, :end_time)
   end
 
 #   # GET /events/1
