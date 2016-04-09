@@ -30,7 +30,7 @@
   <div class="form-group">
     <%= f.label :status, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.select(:status, options_for_select([["unlisted"], ["published"], ["expired"], ["archived"], ["deleted"], ["rule violated"], ["hidden"]]), {}, {class: "form-control"}) %>
+      <%= f.select(:status, options_for_select([["unlisted"], ["published"], ["hidden"]]), {}, {class: "form-control"}) %>
     </div>
   </div>
 
