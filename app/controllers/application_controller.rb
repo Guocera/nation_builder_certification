@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     )
   end
 
+  def site_slug
+    'branchoutdev'
+  end
+
   def get_redirect_url
     redirect_uri = 'http://localhost:3000/oauth/new'
   end

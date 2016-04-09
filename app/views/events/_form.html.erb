@@ -1,7 +1,16 @@
-<%= form_for(@event) do |f| %>
+<% if is_new %>
+  <% method = "post" %>
+  <% url = "/events" %>
+<% else %>
+  <% method = "put" %>
+  <% url = "/events/#{@event.id}" %>
+<% end %>
+
+<%= form_for(@event, url: url, method: method, html: {class: "form-horizontal", role: "form"}) do |f| %>
+  <%= f.hidden_field :id, value: @event.id %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this person from being saved:</h2>
 
       <ul>
       <% @event.errors.full_messages.each do |message| %>
@@ -11,7 +20,36 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :name, class: "col-sm-4 control-label" %><br>
+    <div class="col-sm-8">
+      <%= f.text_field :name, required: true, value: @event.name, placeholder: "Name", class: "form-control" %>  
+    </div>
   </div>
+
+  <div class="form-group">
+    <%= f.label :status, class: "col-sm-4 control-label" %><br>
+    <div class="col-sm-8">
+      <%= f.select(:status, options_for_select([["unlisted"], ["published"], ["expired"], ["archived"], ["deleted"], ["rule violated"], ["hidden"]]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+  <% if is_new %>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="pull-right">
+          <%= f.submit class: "btn btn-primary", value: "Save" %>
+        </div>
+        <div class="pull-let">
+          <%= link_to 'Back', events_path, class: "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    </div>
+    <div class="modal-footer ">
+      <%= button_tag(type: 'submit', method: :put, class: "btn btn-warning btn-lg", style: "width: 100%;") do %>
+        <span class='glyphicon glyphicon-ok-sign'></span> Update
+      <% end %>
+  <% end %>
 <% end %>
