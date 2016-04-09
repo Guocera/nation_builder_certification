@@ -43,7 +43,10 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    
+    id = params[:id]
+    token.delete("/api/v1/people/#{id}")
+
+    redirect_to people_path
   end
 
   private
