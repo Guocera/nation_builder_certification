@@ -1,10 +1,12 @@
 <% if is_new %>
-  <% action = "create" %>
+  <% method = "post" %>
+  <% url = "/people" %>
 <% else %>
-  <% action = "update" %>  
+  <% method = "put" %>
+  <% url = "/people/#{@person.id}" %>
 <% end %>
 
-<%= form_for(@person, html: {class: "form-horizontal", role: "form", url: { action: action } }) do |f| %>
+<%= form_for(@person, url: url, method: method, html: {class: "form-horizontal", role: "form"}) do |f| %>
   <%= f.hidden_field :id, value: @person.id %>
   <% if @person.errors.any? %>
     <div id="error_explanation">
