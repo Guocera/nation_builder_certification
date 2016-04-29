@@ -6,7 +6,7 @@
   <% end_time = @event.end_time.strftime('%Y-%m-%d') %>
 <% end %>
 
-<%= form_for(@event, html: {class: "form-horizontal", role: "form"}) do |f| %>
+<%= form_for(@event, html: {class: "form-horizontal", role: "form"}, url: event_path(@event.id), method: :put) do |f| %>
   <%= f.hidden_field :id, value: @event.id %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
