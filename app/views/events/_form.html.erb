@@ -1,11 +1,7 @@
 <% if is_new %>
-  <% method = "post" %>
-  <% url = "/events" %>
   <% start_time = @event.start_time %>
   <% end_time = @event.end_time %>
 <% else %>
-  <% method = "put" %>
-  <% url = "/events/#{@event.id}" %>
   <% start_time = @event.start_time.strftime('%Y-%m-%d') %>
   <% end_time = @event.end_time.strftime('%Y-%m-%d') %>
 <% end %>
