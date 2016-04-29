@@ -1,12 +1,16 @@
 <% if is_new %>
   <% method = "post" %>
   <% url = "/events" %>
+  <% start_time = @event.start_time %>
+  <% end_time = @event.end_time %>
 <% else %>
   <% method = "put" %>
   <% url = "/events/#{@event.id}" %>
+  <% start_time = @event.start_time.strftime('%Y-%m-%d') %>
+  <% end_time = @event.end_time.strftime('%Y-%m-%d') %>
 <% end %>
 
-<%= form_for(@event, url: url, method: method, html: {class: "form-horizontal", role: "form"}) do |f| %>
+<%= form_for(@event, html: {class: "form-horizontal", role: "form"}) do |f| %>
   <%= f.hidden_field :id, value: @event.id %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
@@ -37,14 +41,14 @@
   <div class="form-group">
     <%= f.label :start_time, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.date_field(:start_time, required: true, value: @event.start_time.strftime('%Y-%m-%d'), placeholder: "Start time", class: "form-control") %>
+      <%= f.date_field(:start_time, required: true, value: start_time, placeholder: "Start time", class: "form-control") %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :end_time, class: "col-sm-4 control-label" %><br>
     <div class="col-sm-8">
-      <%= f.date_field(:end_time, required: true, value: @event.end_time.strftime('%Y-%m-%d'), placeholder: "End time", class: "form-control") %>
+      <%= f.date_field(:end_time, required: true, value: end_time, placeholder: "End time", class: "form-control") %>
     </div>
   </div>
 

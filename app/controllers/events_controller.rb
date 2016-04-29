@@ -13,7 +13,6 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    puts "Status: ", @event.status
     token.post("/api/v1/sites/#{site_slug}/pages/events", body: { "event": {
       "name": @event.name,
       "status": @event.status,
