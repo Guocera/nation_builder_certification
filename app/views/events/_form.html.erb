@@ -1,12 +1,16 @@
 <% if is_new %>
+  <% url = events_path %>
+  <% method = :post %>
   <% start_time = @event.start_time %>
   <% end_time = @event.end_time %>
 <% else %>
+  <% url = event_path(@event.id) %>
+  <% method = :put %>
   <% start_time = @event.start_time.strftime('%Y-%m-%d') %>
   <% end_time = @event.end_time.strftime('%Y-%m-%d') %>
 <% end %>
 
-<%= form_for(@event, html: {class: "form-horizontal", role: "form"}, url: event_path(@event.id), method: :put) do |f| %>
+<%= form_for(@event, html: {class: "form-horizontal", role: "form"}, url: url, method: method) do |f| %>
   <%= f.hidden_field :id, value: @event.id %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
