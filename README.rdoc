@@ -1,28 +1,21 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application completes two of the Nation Builder Developer Exercises to become a Certified Developer.
 
-Things you may want to cover:
+# Configuration
 
-* Ruby version
+Clone the repository:
 
-* System dependencies
+`git clone asdfklasdf`
 
-* Configuration
+Install dependencies:
 
-* Database creation
+`bundle install`
 
-* Database initialization
+Start the server:
 
-* How to run the test suite
+`bundle exec rails server`
 
-* Services (job queues, cache servers, search engines, etc.)
+Visit the web application in your preferred browser:
 
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+`http://localhost:3000`
