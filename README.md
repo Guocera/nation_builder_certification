@@ -1,4 +1,5 @@
-== README
+README
+===================
 
 This application completes the People and Event Nation Builder Developer Exercises to become a Certified Developer.
 
