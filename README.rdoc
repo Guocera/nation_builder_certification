@@ -1,6 +1,6 @@
 == README
 
-This application completes two of the Nation Builder Developer Exercises to become a Certified Developer.
+This application completes the People and Event Nation Builder Developer Exercises to become a Certified Developer.
 
 # Configuration
 
