@@ -6,7 +6,7 @@ This application completes the People and Event Nation Builder Developer Exercis
 
 Clone the repository:
 
-`git clone asdfklasdf`
+`git clone https://github.com/Guocera/nation_builder_certification`
 
 Install dependencies:
 
