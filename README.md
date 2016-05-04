@@ -1,7 +1,7 @@
 README
 ===================
 
-This application completes the People and Event Nation Builder Developer Exercises to become a Certified Developer.
+This application completes the People and Event Nation Builder Developer Exercises to become a Certified Developer.  It is also hosted at https://nbcert.herokuapp.com.
 
 # Configuration
 
