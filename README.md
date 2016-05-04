@@ -13,6 +13,10 @@ Enter the directory:
 
 `cd nation_builder_certification`
 
+Update environment variable:
+
+`source .bash_profile`
+
 Install dependencies:
 
 `bundle install`
