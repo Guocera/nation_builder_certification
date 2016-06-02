@@ -12,10 +12,11 @@
     <div class="jumbotron">
       <h1>Welcome</h1>
       <p>This App was created to become a Certified Nation Builder Developer.</p>
-      <p>
-        <a class="btn btn-primary btn-lg" href=<%= @oauth_authorize %> role="button">Login</a>
-      </p>
-  
+      <% unless session[:token] %>
+        <p>
+          <a class="btn btn-primary btn-lg" href=<%= @oauth_authorize %> role="button">Login</a>
+        </p>
+      <% end %>
     </div>
   </div>
 </body>
